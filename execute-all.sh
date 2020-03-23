@@ -722,6 +722,8 @@ case $BYTECODE_REPAIR_METHOD in
     ;;
 esac
 
+FORCE_PREOPT=false
+
 # If deodex all not set provide a list of packages to repair
 if [ $DEODEX_ALL = false ]; then
   BYTECODE_LIST="$TMP_WORK_DIR/bytecode_list.txt"
