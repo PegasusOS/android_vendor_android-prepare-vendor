@@ -491,7 +491,12 @@ gen_board_cfg_mk() {
 gen_board_family_cfg_mk() {
   local familyBoardCfgVendorMk="" majorTarget="" minorTarget=""
 
-  if [[ "$DEVICE_FAMILY" == "crosshatch" ]]; then
+  # So far required for Pixel 1st & 3rd generation
+  if [[ "$DEVICE_FAMILY" == "marlin" ]]; then
+    familyBoardCfgVendorMk="$OUTPUT_DIR/vendor/$VENDOR_DIR/$DEVICE_FAMILY/BoardConfigVendor.mk"
+    majorTarget="marlin"
+    minorTarget="sailfish"
+  elif [[ "$DEVICE_FAMILY" == "crosshatch" ]]; then
     familyBoardCfgVendorMk="$OUTPUT_DIR/vendor/$VENDOR_DIR/$DEVICE_FAMILY/proprietary/BoardConfigVendor.mk"
     majorTarget="crosshatch"
     minorTarget="blueline"
